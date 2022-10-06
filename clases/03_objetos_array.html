@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+    <script>
+
+        var personaString = JSON.stringify({
+            nombre: "Eduardo",
+            altura: 1.75,
+            sexo: "m"
+        });
+
+        console.log(personaString, personaString.nombre);
+        
+        var personaJSON = JSON.parse(personaString);
+
+        console.log(personaJSON, personaJSON.nombre);
+
+
+        var personaArray = [
+            {
+                nombre: "Eduardo",
+                altura: 1.75,
+                sexo: "m"
+            },
+            {
+                nombre: "Jesica",
+                altura: 1.85,
+                sexo: "F"
+            },
+            {
+                nombre: "Carlos",
+                altura: 1.80,
+                sexo: "M"
+            }
+        ];
+
+        console.log(personaArray[0].nombre);
+        
+        var contadorHombres = 0;
+        var acumuladorAlturaHombres = 0;
+        var acumuladorAlturaGeneral = 0;
+        for (let index = 0; index < personaArray.length; index++) {
+            var persona = personaArray[index];
+            acumuladorAlturaGeneral+= persona.altura;
+
+            if (persona.sexo.toUpperCase() == "M") {
+                contadorHombres++;
+                acumuladorAlturaHombres+= persona.altura;
+            }
+        }
+
+        console.log("Cantidad de Personas: ", personaArray.length);
+        console.log("Cantidad de Hombres: ", contadorHombres);
+        console.log("Altura Promedio de Hombres: ", acumuladorAlturaHombres/contadorHombres);
+        console.log("Altura Promedio de General: ", acumuladorAlturaGeneral/personaArray.length);
+
+
+
+    </script>
+</body>
+
+</html>

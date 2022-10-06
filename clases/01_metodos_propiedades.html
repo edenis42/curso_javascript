@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+
+    <script>
+        var mensaje = 'mensaje prueba prueba2';
+        var mensajeMayuscula = mensaje.toUpperCase();
+        var mensajeMinuscula = mensaje.toLowerCase();
+        var numero = 2.548;
+        
+        console.log('mensaje: ', mensaje);
+        console.log('longitud del mensaje: ', mensaje.length);
+        console.log('toUpperCase: ', mensajeMayuscula);
+        console.log('toLowerCase: ', mensajeMinuscula);
+        console.log('indexOf: ', mensaje.indexOf('prue'));
+        console.log('lastIndexOf: ', mensaje.lastIndexOf('prue'));
+        console.log('substring: ', mensaje.substring(0,7));
+        console.log('concat: ', mensaje.concat("CONCATENAR"));
+        var lista_palabras = mensaje.split(" ");
+        console.log('split: ', lista_palabras);
+        console.log('concat array', lista_palabras.concat([12, "test"]));
+        console.log('length array', lista_palabras.length);
+        console.log('join', lista_palabras.join("_"));
+
+        console.log('lista_palabras: ', lista_palabras);
+        console.log('pop: ', lista_palabras.pop());
+        console.log('lista_palabras: ', lista_palabras);
+        console.log('push: ', lista_palabras.push('ultimo elemento'));
+        console.log('lista_palabras: ', lista_palabras);
+        console.log('shift: ', lista_palabras.shift());
+        console.log('lista_palabras: ', lista_palabras);
+        console.log('unshift: ', lista_palabras.unshift('primer elemento'));
+        console.log('lista_palabras: ', lista_palabras);
+        console.log('reverse: ', lista_palabras.reverse());
+        console.log('lista_palabras: ', lista_palabras);
+
+        console.log('numero: ', numero);
+        console.log('toFixed: ', numero.toFixed(2));
+        console.log('NaN not a number: ', 0/0);
+        console.log('isNaN: ', isNaN(123));
+        console.log('parseInt: ', parseInt("147"));
+        console.log('parseInt: ', parseFloat("12.5"));
+
+
+    </script>
+</body>
+
+</html>
