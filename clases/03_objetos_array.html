@@ -10,19 +10,10 @@
 
 <body>
     <script>
-
-        var personaString = JSON.stringify({
-            nombre: "Eduardo",
-            altura: 1.75,
-            sexo: "m"
-        });
-
-        console.log(personaString, personaString.nombre);
-        
+        var personaString = '{"nombre":"Eduardo JSON","altura":1.75,"sexo":"m"}';
         var personaJSON = JSON.parse(personaString);
-
-        console.log(personaJSON, personaJSON.nombre);
-
+        console.log(personaJSON.nombre);
+        console.log(JSON.stringify(personaJSON));
 
         var personaArray = [
             {
