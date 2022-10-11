@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: aqua;
+        }
+
+        h1 {
+            color: brown;
+        }
+
+        p.alert {
+            color: red;
+        }
+
+        .importan {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Titulo Principal</h1>
+    <div id="container-principal" class="container">
+        <h2>Titulo Secundario</h2>
+        <p> 
+            <span>Importante</span> <b>Negrita</b> texto 1 
+        </p>
+        <p> texto 2 </p>
+    </div>
+    <p class="alert importan d-none"> texto 3 </p>
+
+
+    <div class="container">
+        <h2> Otro div </h2>
+        <p> texto 4 </p>
+    </div>
+
+    <form action="">
+        <input type="text" name="nombre" val="Eduardo">
+        <input type="text" name="nombre" val="Eduardo 2">
+        <input type="text" name="apellido">
+    </form>
+
+
+    <script>
+        var parrafos = document.getElementsByTagName('p');
+        console.log(parrafos);
+
+        var nombres = document.getElementsByName('nombre');
+        console.log(nombres);
+
+        var main = document.getElementById('container-principal');
+        console.log(main);
+
+        var main2 = document.querySelector('.container');
+        console.log(main2);
+
+        var containers = document.querySelectorAll('.container');
+        console.log(containers);
+
+        var h1 = document.querySelector('h1');
+        console.log(h1.nodeName, h1.textContent);
+        h1.textContent = "Otro titulo desde JS";
+
+        var primerParrafo = document.querySelector('p');
+        console.log(primerParrafo.nodeName, primerParrafo.textContent);
+        console.log(primerParrafo.innerHTML);
+        primerParrafo.innerHTML = '<b>texto 1</b>';
+
+        var texto3 = document.querySelector('p.alert');
+        console.log(texto3);
+        console.log(texto3.className);
+        console.log(texto3.classList);
+        console.log(texto3.classList[0]);
+
+        console.log(main.childNodes);
+        console.log(main.parentNode);
+
+        texto3.classList.toggle('d-none');
+
+
+        var parrafoNuevo = document.createElement("p");
+        var textoParrafo = document.createTextNode("Hola, Soy El Nuevo Parrafo");
+        parrafoNuevo.appendChild(textoParrafo);
+        document.body.appendChild(parrafoNuevo);
+        parrafoNuevo.classList.add('importan', 'container');
+
+    </script>
+</body>
+</html>

@@ -18,7 +18,10 @@
 
         for (let index = 0; index < autosJSON.length; index++) {
             const autoObj = autosJSON[index];
-            console.log(autoObj.auto, autoObj.velocidad_maxima, autoObj.velocidad)
+
+            var texto = autoObj.auto.toLowerCase()
+            console.log(texto.indexOf('toyota'))
+            console.log(texto.split('-')[0], texto.split('-')[1])
         }
 
     </script>
