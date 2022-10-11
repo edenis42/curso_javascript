@@ -9,21 +9,7 @@
 </head>
 
 <body>
-
     <script>
-        var autosString = '[{"auto":"toyota-supra","velocidad_maxima":190},{"auto":"Toyota-ae86","velocidad_maxima":220},{"auto":"ford-focus","velocidad_maxima":170},{"auto":"toyota-corolla","velocidad_maxima":200}]';
-        console.log(autosString);
-        var autosJSON = JSON.parse(autosString);
-        console.log(autosJSON);
-
-        for (let index = 0; index < autosJSON.length; index++) {
-            const autoObj = autosJSON[index];
-
-            var texto = autoObj.auto.toLowerCase()
-            console.log(texto.indexOf('toyota'))
-            console.log(texto.split('-')[0], texto.split('-')[1])
-        }
-
     </script>
 </body>
 
