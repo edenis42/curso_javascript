@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Un párrafo que contiene un <button>Botón</button>.</p>
+
+    <a href="http://google.com.ar"> ir a Google! </a>
+
+    <input type="text">
+
+    <script>
+        var parrafo = document.querySelector("p");
+
+        var boton = document.querySelector("button");
+
+        parrafo.addEventListener("click", function () {
+            console.log("Handler para el párrafo.");
+        }, true);
+
+        boton.addEventListener("click", function (event) {
+            console.log("Handler para el botón.");
+            console.log("pageX: ", event.pageX);
+            console.log("pageY: ", event.pageY);
+        }, true);
+
+        var link = document.querySelector("a");
+
+        link.addEventListener("click", function (event) {
+            console.log("De acá no te vas!!");
+            event.preventDefault();
+        });
+
+        addEventListener("keydown", function (event) {
+            if (event.key == "b" && event.ctrlKey) {
+                document.body.style.background = "blue";
+            }
+
+            if (event.key == "w") {
+                document.body.style.background = "#ffffff";
+            }
+        });
+
+        var input = document.querySelector("input");
+
+        input.addEventListener("change", function (event) {
+            console.log(event.target.value)
+        })
+
+    </script>
+</body>
+
+</html>

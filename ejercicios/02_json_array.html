@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+    <script>
+        var autosString = '[{"auto":"toyota-supra","velocidad_maxima":190},{"auto":"Toyota-ae86","velocidad_maxima":220},{"auto":"ford-focus","velocidad_maxima":170},{"auto":"toyota-corolla","velocidad_maxima":200}]';
+        var autosLista = JSON.parse(autosString);
+
+        var acumulador = 0;
+        var max = -1;
+        var toyotaRapido = "";
+        for (let i = 0; i < autosLista.length; i++) {
+            var elemento = autosLista[i];
+            console.log(elemento)
+            acumulador = acumulador + elemento.velocidad_maxima;
+
+            var marca = elemento.auto.toLowerCase().split("-")[0];
+            var modelo = elemento.auto.toLowerCase().split("-")[1];
+            
+            if (marca == "toyota" && elemento.velocidad_maxima > max) {
+                max = elemento.velocidad_maxima;
+                toyotaRapido = modelo;
+            }
+        }
+
+        console.log("promedio", acumulador/autosLista.length);
+        console.log("el mas rapido es", toyotaRapido);
+    </script>
+</body>
+
+</html>
