@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        label, input {
+            display: block;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+
+        main {
+            height: 80vh;
+            display: flex;
+        }
+
+        main section {
+            width: 50%;
+        }
+
+        #tabla tbody {
+            background-color: rgb(182, 105, 105);
+        }
+
+        .success {
+            background-color: rgb(61, 111, 61);
+        }
+    </style>
+
+</head>
+<body>
+    <h1> Ejercicio Integrador </h1>
+    <main>
+        <section>
+            <h2> Formulario </h2>
+            <form id="formulario" action="">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre">
+                
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido">
+    
+                <label for="dni">DNI</label>
+                <input type="number" name="dni" required>
+
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Reset">
+            </form>
+        </section>
+        <section>
+            <h2> Tabla </h2>
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Eduardo</td>
+                        <td>Denis</td>
+                        <td>37229772</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <script>
+            var formularioNodo = document.querySelector("#formulario");
+
+            function nuevaRow(nombre, apellido, dni) {
+                // Crear un nuevo elemento ROW
+                var tr = document.createElement('tr');
+
+                // Crear columnas
+                var tdNombre = document.createElement('td');
+                tdNombre.innerText = nombre;
+
+                var tdApellido= document.createElement('td');
+                tdApellido.innerText = apellido;
+
+                var tdDNI = document.createElement('td');
+                tdDNI.innerText = dni;
+
+                // Agregar td's al row
+                tr.appendChild(tdNombre);
+                tr.appendChild(tdApellido);
+                tr.appendChild(tdDNI);
+
+                return tr;
+            }
+
+            formularioNodo.addEventListener("submit", function (event) {
+                console.log("Evento Submit:");
+                event.preventDefault();
+
+                var nombre = document.querySelector('input[name=nombre]').value;
+                var apellido = document.querySelector('input[name=apellido]').value;
+                var dni = document.querySelector('input[name=dni]').value;
+
+
+                if (dni == 37229772) {
+                    console.log("No se puede cargar este DNI, ingrese otro por favor");
+                    document.querySelector('input[name=dni]').value = '';
+                    return;
+                }
+
+                event.target.reset();
+                console.log(nombre, apellido, dni);
+
+                var row = nuevaRow(nombre, apellido, dni);
+                row.classList.add('success');
+                console.log(row);
+
+                document.querySelector('#tabla tbody').appendChild(row);
+            })
+
+        </script>
+    </main>
+    
+</body>
+</html>

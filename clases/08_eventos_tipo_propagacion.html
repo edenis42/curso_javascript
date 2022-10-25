@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .alert {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
-    <p>Un párrafo que contiene un <button>Botón</button>.</p>
+    <p class="alert">Un párrafo que contiene un <button>Botón</button>.</p>
 
     <a href="http://google.com.ar"> ir a Google! </a>
 
@@ -36,6 +41,7 @@
             console.log("De acá no te vas!!");
             event.preventDefault();
         });
+        
 
         addEventListener("keydown", function (event) {
             if (event.key == "b" && event.ctrlKey) {
