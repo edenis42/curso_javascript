@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: none;
+            margin: auto;
+            background-color: red;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="mostrar">Mostrar</button>
+    <button id="ocultar">Ocultar</button>
+    <div> Hola! </div>
+
+    <script>
+        var botonMostrar = document.querySelector('#mostrar');
+        var botonOcultar = document.querySelector('#ocultar');
+        var div = document.querySelector('div');
+
+        botonMostrar.addEventListener('click', function (event) {
+            // Instrucciones para mostrar el div
+            div.style.display = 'block';
+        });
+
+        botonOcultar.addEventListener('click', function (event) {
+            // Instrucciones para ocultar el div
+            div.style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>
