@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        header {
+            background-color: rgb(182, 97, 97);
+        }
+
+        footer {
+            background-color: rgb(91, 91, 136);
+        }
+
+        main {
+            background-color: rgb(95, 156, 95);
+        }
+
+        p {
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"> Pagina Principal </a>
+        <nav>
+            <a id="contacto" href="#"> Contacto </a>
+            <a id="galeria" href="#"> Galeria </a>
+        </nav>
+    </header>
+
+    <main>
+        Contenido
+    </main>
+
+    <footer>
+        <p> Desarrollado por <b>Eduardo Denis</b> </p>
+    </footer>
+
+    <script>
+        var peticionContacto = new XMLHttpRequest();
+        peticionContacto.addEventListener('readystatechange', function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // codigo
+                document.querySelector("main").innerHTML = this.responseText;
+            }
+        });
+
+        var peticionGaleria = new XMLHttpRequest();
+        
+        peticionGaleria.addEventListener('readystatechange', function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // codigo
+                document.querySelector("main").innerHTML = this.responseText;
+            }
+        });
+
+        document.getElementById('galeria').addEventListener('click', function (event) {
+            event.preventDefault();
+            peticionGaleria.open("GET", "./componentes/galeria.html");
+            peticionGaleria.send();
+        });
+
+        document.getElementById('contacto').addEventListener('click', function (event) {
+            event.preventDefault();
+            peticionContacto.open("GET", "./componentes/contacto.html", true);
+            peticionContacto.send();
+        });
+        
+    </script>
+</body>
+</html>

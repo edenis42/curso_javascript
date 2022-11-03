@@ -9,7 +9,7 @@ peticionHeader.addEventListener('readystatechange', function () {
     }
 });
 
-peticionHeader.open("GET", "./layout/header.html", true);
+peticionHeader.open("GET", "./componentes/header.html", true);
 peticionHeader.setRequestHeader("Content-type", "html");
 peticionHeader.send();
 
@@ -24,6 +24,6 @@ peticionFooter.addEventListener('readystatechange', function () {
     }
 });
 
-peticionFooter.open("GET", "./layout/footer.html", true);
+peticionFooter.open("GET", "./componentes/footer.html", true);
 peticionFooter.setRequestHeader("Content-type", "html");
 peticionFooter.send();
