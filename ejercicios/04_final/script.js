@@ -1,5 +1,5 @@
 var peticion = new XMLHttpRequest();
-peticion.open("GET", "http://127.0.0.1:5500/productos.json", true);
+peticion.open("GET", "./productos.json", true);
 var total = 0;
 
 // handler para obtener los productos del JSON

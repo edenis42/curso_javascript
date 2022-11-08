@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <span></span>
+    
+    <script>
+
+        if (localStorage.getItem('nombre') == null) {
+            var nombre = prompt("Ingrese el nombre de usuario");
+            localStorage.setItem('nombre', nombre);
+        }
+
+        document.querySelector('span').innerText = localStorage.getItem('nombre');
+
+        var lista = [
+            {
+                "nombre": "Edu",
+                "apellido": "Denis"
+            },
+            {
+                "nombre": "Edu2",
+                "apellido": "Denis2"
+            }
+        ]
+        console.log("lista: ", lista);
+
+        // guardo en localStorage
+        localStorage.setItem('lista_error', lista);
+        localStorage.setItem('lista', JSON.stringify(lista));
+
+        // Consulto del localStorage
+        console.log("lista_error (localStorage): ", localStorage.getItem('lista_error'));
+        console.log("lista (localStorage): ", JSON.parse(localStorage.getItem('lista')));
+    </script>
+</body>
+</html>

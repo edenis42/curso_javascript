@@ -9,28 +9,49 @@
 <body>
     
     <script>
-        function leerCookie(nombre) {
-            let cookieName = nombre + "=";
-            let cookieArray = document.cookie.split(';');
 
+        // Cokies
+            document.cookie = "usuario=Eduardo Denis";
+            document.cookie = "usuario=Eduardo Denis; expires=Thu, 17 Nov 2022 12:00:00 UTC";
+            document.cookie = "usuario=Eduardo Ignacio Denis; expires=Thu, 17 Nov 2022 12:00:00 UTC";
+            document.cookie = "usuario2=Pepito; expires=Thu, 17 Nov 2022 12:00:00 UTC";
 
-            for (let i = 0; i < cookieArray.length; i++) {
-                let c = cookieArray[i];
+            console.log(document.cookie);
 
-                // Eliminar espacios en blanco delente del cookieString
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+            function leerCookie(nombre) {
+                let cookieName = nombre + "=";
+                let cookieArray = document.cookie.split(';');
+
+                for (let i = 0; i < cookieArray.length; i++) {
+                    let c = cookieArray[i];
+
+                    // Eliminar espacios en blanco delente del cookieString
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+
+                    // Utilizo el indexOf para verificar si el nombre ingresado corresponde con la cookie del array
+                    if (c.indexOf(cookieName) == 0) {
+                        // Si coinciden retorno la cookie
+                        return c.substring(cookieName.length, c.length);
+                    }
                 }
 
-                // Utilizo el indexOf para verificar si el nombre ingresado corresponde con la cookie del array
-                if (c.indexOf(cookieName) == 0) {
-                    // Si coinciden retorno la cookie
-                    return c.substring(cookieName.length, c.length);
-                }
+                return "";
             }
 
-            return "";
-        }
+            console.log("Muestro el usuario por Cokie: ", leerCookie("usuario"));
+
+        // localStorage
+            
+            localStorage.setItem('usuario1', 'Eduardo Denis');
+            localStorage.setItem('usuario2', 'Eduardo Ignacio Denis');
+            localStorage.removeItem('usuario');
+            localStorage.clear();
+            localStorage.setItem('usuario', 'Eduardo Ignacio Denis');
+            var nomberUsuario = localStorage.getItem('usuario');
+            console.log("Muestro el usuario por localStorage: ", nomberUsuario);
+
 
     </script>
 </body>

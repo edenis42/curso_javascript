@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contador {
+            border: 1px solid black;
+            width: 2em;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: beige;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contador"></div>
+
+    <button id="sumar"> Sumar Contador </button>
+
+    <button id="restar"> Restar Contador </button>
+    
+    <script>
+        var contadorDiv = document.querySelector(".contador");
+        var botonSumar = document.querySelector("#sumar");
+        var botonRestar = document.querySelector("#restar");
+
+        if (localStorage.getItem('contador') == null) {
+            var contador = 0;
+            contadorDiv.innerText = contador;
+        } else {
+            var contador = Number(localStorage.getItem('contador'));
+            contadorDiv.innerText = contador;
+        }
+
+        botonSumar.addEventListener('click', function (event) {
+            contador = contador + 1;
+            contadorDiv.innerText = contador;
+            localStorage.setItem('contador', contador);
+        });
+
+        botonRestar.addEventListener('click', function (event) {
+            var contadorValorActual = contadorDiv.innerText;
+
+            if (contadorValorActual > 0) {
+                contador = contador - 1;
+                contadorDiv.innerText = contador;
+                localStorage.setItem('contador', contador);
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
