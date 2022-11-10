@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert {
+            color: red !important;
+        }
+
+        main {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> Titulo Principal </h1>
+
+    <a href="https://google.com">google</a>
+
+    <ul>
+        <li><span>0</span></li>
+        <li class="active">1</li>
+        <li class="active">2</li>
+        <li class="alert"><span>3</span></li>
+        <li class="active">4</li>
+    </ul>
+
+    <input type="text" name="nombre" value="Edu">
+    <input type="text" name="apellido" value="Denis">
+
+
+    <main>
+    </main>
+
+    <script src="./jquery-3.6.1.min.js"></script>
+
+    <script>
+        var titulo = document.querySelector('h1');
+        var titulo2 = $('h1');
+
+        var elementos = $('li.active');
+
+        if (elementos.length > 0) {
+            console.log("elementos activos:", elementos.length)
+        }
+
+        console.log("elementos no activos", $('li').not('.active').length);
+        console.log($('li').not('.active').html("<span>Hola</span>"));
+        $('li').not('.active').css('color', 'blue');
+        $('li').not('.active').toggleClass('alert');
+        console.log($('li').not('.active').position());
+
+        $('a').attr('href', 'https://yahoo.com');
+        console.log($('a').text());
+        $('a').text('yahoo');
+
+        console.log($('input[name=nombre]').val('Cambiado desde jQuery'));
+
+        console.log($('li').parent());
+        console.log($('ul').children());
+
+        var div1 = $('<div>1</div>');
+        var div2 = $('<div>2</div>');
+        var div3 = $('<div>3</div>');
+        var div4 = $('<div>4</div>');
+
+        $('main').append(div1);
+        $('main').prepend(div2);
+        $('main').after(div3);
+        $('main').before(div4);
+
+        $('ul').hide();
+        $('ul').show();
+
+        $('main').after($('ul').clone());
+
+        $('ul li').each(function (indice, elemento) {
+            console.log(indice + ' tiene ' + $(elemento).html());
+        });
+
+        var result = $('input').map(
+            function (indice, elemento) {
+                return $(elemento).val();
+            }
+        );
+
+        console.log(result);
+
+        $('a').click(
+            function (evento) {
+                evento.preventDefault();
+                console.log('Hola1!');
+            }
+        );
+
+        $('a').on(
+            'click'
+            , function (evento) {
+                console.log('Hola2!');
+            }
+        );
+
+        $('a').one(
+            'click'
+            , function (evento) {
+                console.log('Hola3!');
+            }
+        );
+
+
+        $.get("./singlepage_ajax/componentes/contacto.html", function (data) {
+            $("main").html(data);
+            console.log("Listo!!");
+        });
+
+        $("main").load("./singlepage_ajax/componentes/contacto.html");
+
+        $.ajax({
+            // la URL para la petición​
+            url: './singlepage_ajax/componentes/contacto.html',
+
+            // la información a enviar​
+            data : { dni: 12345678 },
+
+
+            // Metodo de la petición​
+            type : 'GET',
+
+
+            // el tipo de información que se espera de respuesta​
+            dataType : 'html',
+
+
+            // Función en caso de que obtengamos una respuesta satisfactoria​
+            success : function (data) {
+                $('main').html(data);
+            },
+
+
+            // Función a ejecutar en caso de error​
+            error : function (xhr, status) {
+                console.log('Disculpe, ocurrió un problema');
+            },
+
+
+            // Función a ejecutar independientemente del resultado​
+            complete : function (xhr, status) {
+                console.log('Petición realizada');
+            }
+});
+
+    </script>
+</body>
+
+</html>
