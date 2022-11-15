@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1> Titulo Principal </h1>
+    <div id="productos"></div>
+    <div id="carrito"></div>
+
+    <script src="./jquery-3.6.1.min.js"></script>
+
+    <script>
+        $.get("./productos.json", function (data) {
+            data.forEach(p => {
+                let productoHTMLTemplate = `
+                    <div class="card">
+                        <img src="${p.url_foto}" alt="">
+                        <h5> ${p.nombre} </h5>
+                        <p> ${p.descripcion} </p>
+                    </div>
+                `;
+
+                let producto = $(productoHTMLTemplate);
+
+                let link = $('<a href="#">+</a>');
+                link.click(function () {
+                    console.log("click");
+                });
+
+                producto.append(link);
+                $('#productos').append(producto);
+
+            });
+        });
+    </script>
+</body>
+
+</html>

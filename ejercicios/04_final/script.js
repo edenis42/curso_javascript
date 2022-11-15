@@ -1,5 +1,4 @@
 var peticion = new XMLHttpRequest();
-peticion.open("GET", "./productos.json", true);
 var total = 0;
 
 // handler para obtener los productos del JSON
@@ -50,4 +49,23 @@ peticion.addEventListener("readystatechange", function () {
     }
 });
 
+
+peticion.open("GET", "./productos.json", true);
 peticion.send();
+
+var botonCaro = document.querySelector("#caro");
+
+botonCaro.addEventListener("click", function () {
+
+    var productosCarrito = document.querySelector('.carrito tbody').children;
+
+    for (let index = 0; index < productosCarrito.length; index++) {
+        const productoRow = productosCarrito[index];
+
+        let productoNombre = productoRow.children[0].innerText;
+        let productoPrecio = Number(productoRow.children[1].innerText);
+        console.log(productoNombre, productoPrecio);
+    }
+
+    console.log("El mas caro es: ", "Televisor")
+});
