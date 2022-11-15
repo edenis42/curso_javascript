@@ -65,7 +65,8 @@ botonCaro.addEventListener("click", function () {
         let productoNombre = productoRow.children[0].innerText;
         let productoPrecio = Number(productoRow.children[1].innerText);
         console.log(productoNombre, productoPrecio);
+        // agregar logica de maximo
     }
 
-    console.log("El mas caro es: ", "Televisor")
+    console.log("El mas caro es: ", "Televisor");
 });
