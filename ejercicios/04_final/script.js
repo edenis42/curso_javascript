@@ -58,15 +58,20 @@ var botonCaro = document.querySelector("#caro");
 botonCaro.addEventListener("click", function () {
 
     var productosCarrito = document.querySelector('.carrito tbody').children;
+    var max = 0;
+    var productoMasCaro = "";
 
     for (let index = 0; index < productosCarrito.length; index++) {
         const productoRow = productosCarrito[index];
 
         let productoNombre = productoRow.children[0].innerText;
         let productoPrecio = Number(productoRow.children[1].innerText);
-        console.log(productoNombre, productoPrecio);
-        // agregar logica de maximo
+        
+        if (productoPrecio > max) {
+            max = productoPrecio;
+            productoMasCaro = productoNombre;
+        }
     }
 
-    console.log("El mas caro es: ", "Televisor");
+    console.log("El mas caro es: ", productoMasCaro);
 });
